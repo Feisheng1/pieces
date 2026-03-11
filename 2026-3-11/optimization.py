@@ -32,21 +32,9 @@ def optimize(Q):
     
     for i in range(len(convergents) - 1):
         p1, q1 = convergents[i]
-        p2, q2 = convergents[i + 1]
-
         if q1 <= Q:
             candidates.append((p1, q1))
 
-        if i == 0:
-            p_prev, q_prev = 1, 0
-        else:
-            p_prev, q_prev = convergents[i - 1]
-        ai_next = a[i + 1] if i + 1 < len(a) else 0
-        for k in range(1, ai_next):
-            p_mid = k * p1 + p_prev
-            q_mid = k * q1 + q_prev
-            if q_mid <= Q:
-                candidates.append((p_mid, q_mid))
     p_last, q_last = convergents[-1]
     if q_last <= Q:
         candidates.append((p_last, q_last))
