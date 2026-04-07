@@ -1,5 +1,4 @@
 import math
-
 def expand_sqrt(D):
     s = int(math.sqrt(D))
     if s * s == D:
@@ -19,8 +18,6 @@ def expand_sqrt(D):
             return a0, a_cycle[cycle_start:]
         states[(m, d)] = len(a_cycle)
         a_cycle.append(a)
-
-
 def solve(D):
     a0, cycle = expand_sqrt(D)
     p0, p1 = 1, a0
@@ -38,7 +35,6 @@ def solve(D):
         p0, p1 = p1, p2
         q0, q1 = q1, q2
         i += 1
-
 if __name__ == "__main__":
     print(solve(46))
     print(solve(61))
